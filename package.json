@@ -1,0 +1,15 @@
+{
+  "name": "tc-discord-bot",
+  "version": "0.0.1",
+  "description": "Team Cowboy Discord bot",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ryan Shee",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^14.16.3",
+    "dotenv": "^16.4.7"
+  }
+}
