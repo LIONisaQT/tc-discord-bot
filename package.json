@@ -4,12 +4,19 @@
   "description": "Team Cowboy Discord bot",
   "main": "index.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "tsx watch src/index.ts",
+    "start": "node dist/index.js",
+    "build": "tsup src/index.ts --minify"
   },
   "author": "Ryan Shee",
   "license": "ISC",
   "dependencies": {
     "discord.js": "^14.16.3",
     "dotenv": "^16.4.7"
+  },
+  "devDependencies": {
+    "tsup": "^8.3.5",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
   }
 }
