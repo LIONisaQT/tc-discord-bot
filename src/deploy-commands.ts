@@ -2,8 +2,6 @@ import { REST, Routes } from "discord.js";
 import { config } from "./config";
 import { commands } from "./commands";
 
-const commandsData = Object.values(commands).map((command) => command.data);
-
 const rest = new REST({ version: "10" }).setToken(config.DISCORD_TOKEN);
 
 type DeployCommandsProps = {
@@ -12,6 +10,8 @@ type DeployCommandsProps = {
 
 export async function deployCommands({ guildId }: DeployCommandsProps) {
   try {
+    const commandsData = Object.values(commands).map((command) => command.data);
+
     console.log("Started refreshing application (/) commands.");
 
     await rest.put(
@@ -22,7 +22,9 @@ export async function deployCommands({ guildId }: DeployCommandsProps) {
     );
 
     console.log("Successfully reloaded application (/) commands.");
+    return true;
   } catch (error) {
     console.error(error);
+    return false;
   }
 }
