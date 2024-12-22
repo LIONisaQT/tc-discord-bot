@@ -7,16 +7,19 @@ const client = new Client({
   intents: ["Guilds", "GuildMessages", "DirectMessages"],
 });
 
+// When bot is first started up.
 client.once(Events.ClientReady, (readyClient: Client<true>) => {
 	console.log(`Ready! Logged in as ${readyClient.user.tag}`);
-	// deployCommands({ guildId: '373951410355699712' });
+	// deployCommands({ guildId: config.DEV_GUILD_ID });
 });
 
-client.on("guildCreate", async (guild) => {
+// When bot connects to a server.
+client.on(Events.GuildCreate, async (guild) => {
   await deployCommands({ guildId: guild.id });
 });
 
-client.on("interactionCreate", async (interaction) => {
+// When command is input by a user.
+client.on(Events.InteractionCreate, async (interaction) => {
   if (!interaction.isCommand()) {
     return;
   }

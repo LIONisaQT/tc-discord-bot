@@ -1,3 +1,8 @@
+/**
+ * This command is required because new commands will not get recognized by the bot.
+ * Existing command behavior can be updated without running this command.
+ */
+
 import { CommandInteraction, SlashCommandBuilder, Routes } from "discord.js";
 import { deployCommands } from "../deploy-commands";
 import { config } from "../config";
