@@ -9,6 +9,7 @@ const client = new Client({
 
 client.once(Events.ClientReady, (readyClient: Client<true>) => {
 	console.log(`Ready! Logged in as ${readyClient.user.tag}`);
+	// deployCommands({ guildId: '373951410355699712' });
 });
 
 client.on("guildCreate", async (guild) => {
